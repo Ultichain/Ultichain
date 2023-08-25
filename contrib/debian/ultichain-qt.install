@@ -1,0 +1,6 @@
+usr/local/bin/ultichain-qt usr/bin
+share/pixmaps/ultichain32.xpm usr/share/pixmaps
+share/pixmaps/ultichain16.xpm usr/share/pixmaps
+share/pixmaps/ultichain128.png usr/share/pixmaps
+debian/ultichain-qt.desktop usr/share/applications
+debian/ultichain-qt.protocol usr/share/kde4/services/

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Ultichain Core
+Comment=Ultichain P2P Cryptocurrency
+Comment[de]=Verbinde mit dem Ultichain peer-to-peer Netzwerk
+Comment[fr]=Ultichain, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Ultichain, eşten eşe kriptografik sanal para birimi
+Exec=ultichain-qt %u
+Terminal=false
+Type=Application
+Icon=ultichain128
+MimeType=x-scheme-handler/ultichain;
+Categories=Office;Finance;
+StartupWMClass=Ultichain-qt

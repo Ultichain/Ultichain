@@ -1,0 +1,39 @@
+FROM ubuntu:bionic
+LABEL maintainer="Ultichain Developers <dev@ultichain.org>"
+LABEL description="Dockerised Ultichain"
+
+ARG USER_ID
+ARG GROUP_ID
+ARG TAG
+
+ENV HOME /ultichain
+
+# add user with specified (or default) user/group ids
+ENV USER_ID ${USER_ID:-1000}
+ENV GROUP_ID ${GROUP_ID:-1000}
+RUN groupadd -g ${GROUP_ID} ultichain && \
+    useradd -u ${USER_ID} -g ultichain -s /bin/bash -m -d /ultichain ultichain  && \
+    mkdir /ultichain/.ultichain && \
+    chown ultichain:ultichain -R /ultichain
+
+RUN apt-get update && \
+    apt-get -y install --no-install-recommends \
+    wget \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN mach=$(uname -m) \
+      && case $mach in armv7l) arch="arm-linux-gnueabihf"; ;; aarch64) arch="aarch64-linux-gnu"; ;; x86_64) arch="x86_64-linux-gnu"; ;;  *) echo "ERROR: Machine type $mach not supported."; ;; esac \
+      && wget https://github.com/ultichainpay/ultichain/releases/download/v${TAG}/ultichain-${TAG}-$arch.tar.gz -P /tmp \
+      && tar -xvf /tmp/ultichain-*.tar.gz -C /tmp/ \
+      && cp /tmp/ultichain*/bin/*  /usr/local/bin \
+      && rm -rf /tmp/ultichain* \
+      && chmod a+x /usr/local/bin/*
+
+USER ultichain
+
+VOLUME ["/ultichain"]
+
+EXPOSE 13643 9999 23643 23644
+
+WORKDIR /ultichain
