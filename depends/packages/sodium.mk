@@ -2,7 +2,7 @@ package=sodium
 $(package)_version=1.0.18
 $(package)_download_path=https://download.libsodium.org/libsodium/releases
 $(package)_file_name=libsodium-$($(package)_version)-stable.tar.gz
-$(package)_sha256_hash=9d166b5965921d7c2fc8374fd031608b141dceed8bb38d8578df6a72b79d8630
+$(package)_sha256_hash=b21479c0359115bc4ce2d053b28c435eaacd1bbf1d55b449ceb0d87280367e12
 
 define $(package)_set_vars
 $(package)_config_opts+=--with-pic --disable-shared
