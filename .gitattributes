@@ -1,3 +1,1 @@
 src/clientversion.cpp export-subst
-src/ultichaind filter=lfs diff=lfs merge=lfs -text
-src/ultichain-qt filter=lfs diff=lfs merge=lfs -text

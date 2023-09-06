@@ -107,7 +107,7 @@ static CMutableTransaction CreateProRegTx(SimpleUTXOMap& utxos, int port, const 
     CMutableTransaction tx;
     tx.nVersion = 3;
     tx.nType = TRANSACTION_PROVIDER_REGISTER;
-    FundTransaction(tx, utxos, scriptPayout, 3000 * COIN, coinbaseKey);
+    FundTransaction(tx, utxos, scriptPayout, 10000 * COIN, coinbaseKey);
     proTx.inputsHash = CalcTxInputsHash(tx);
     SetTxPayload(tx, proTx);
     SignTransaction(tx, coinbaseKey);
@@ -459,7 +459,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_test_mempool_reorg, TestChainDIP3Setup)
 
     // Create a MN with an external collateral
     CMutableTransaction tx_collateral;
-    FundTransaction(tx_collateral, utxos, scriptCollateral, 3000 * COIN, coinbaseKey);
+    FundTransaction(tx_collateral, utxos, scriptCollateral, 10000 * COIN, coinbaseKey);
     SignTransaction(tx_collateral, coinbaseKey);
 
     auto block = std::make_shared<CBlock>(CreateBlock({tx_collateral}, coinbaseKey));
@@ -476,7 +476,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_test_mempool_reorg, TestChainDIP3Setup)
     payload.scriptPayout = scriptPayout;
 
     for (size_t i = 0; i < tx_collateral.vout.size(); ++i) {
-        if (tx_collateral.vout[i].nValue == 3000 * COIN) {
+        if (tx_collateral.vout[i].nValue == 10000 * COIN) {
             payload.collateralOutpoint = COutPoint(tx_collateral.GetHash(), i);
             break;
         }
@@ -485,7 +485,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_test_mempool_reorg, TestChainDIP3Setup)
     CMutableTransaction tx_reg;
     tx_reg.nVersion = 3;
     tx_reg.nType = TRANSACTION_PROVIDER_REGISTER;
-    FundTransaction(tx_reg, utxos, scriptPayout, 3000 * COIN, coinbaseKey);
+    FundTransaction(tx_reg, utxos, scriptPayout, 10000 * COIN, coinbaseKey);
     payload.inputsHash = CalcTxInputsHash(tx_reg);
     CMessageSigner::SignMessage(payload.MakeSignString(), payload.vchSig, collateralKey);
     SetTxPayload(tx_reg, payload);
@@ -547,7 +547,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_test_mempool_dual_proregtx, TestChainDIP3Setup)
     payload.scriptPayout = scriptPayout;
 
     for (size_t i = 0; i < tx_reg1.vout.size(); ++i) {
-        if (tx_reg1.vout[i].nValue == 3000 * COIN) {
+        if (tx_reg1.vout[i].nValue == 10000 * COIN) {
             payload.collateralOutpoint = COutPoint(tx_reg1.GetHash(), i);
             break;
         }
@@ -556,7 +556,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_test_mempool_dual_proregtx, TestChainDIP3Setup)
     CMutableTransaction tx_reg2;
     tx_reg2.nVersion = 3;
     tx_reg2.nType = TRANSACTION_PROVIDER_REGISTER;
-    FundTransaction(tx_reg2, utxos, scriptPayout, 3000 * COIN, coinbaseKey);
+    FundTransaction(tx_reg2, utxos, scriptPayout, 10000 * COIN, coinbaseKey);
     payload.inputsHash = CalcTxInputsHash(tx_reg2);
     CMessageSigner::SignMessage(payload.MakeSignString(), payload.vchSig, collateralKey);
     SetTxPayload(tx_reg2, payload);
@@ -591,7 +591,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_verify_db, TestChainDIP3Setup)
 
     // Create a MN with an external collateral
     CMutableTransaction tx_collateral;
-    FundTransaction(tx_collateral, utxos, scriptCollateral, 3000 * COIN, coinbaseKey);
+    FundTransaction(tx_collateral, utxos, scriptCollateral, 10000 * COIN, coinbaseKey);
     SignTransaction(tx_collateral, coinbaseKey);
 
     auto block = std::make_shared<CBlock>(CreateBlock({tx_collateral}, coinbaseKey));
@@ -608,7 +608,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_verify_db, TestChainDIP3Setup)
     payload.scriptPayout = scriptPayout;
 
     for (size_t i = 0; i < tx_collateral.vout.size(); ++i) {
-        if (tx_collateral.vout[i].nValue == 3000 * COIN) {
+        if (tx_collateral.vout[i].nValue == 10000 * COIN) {
             payload.collateralOutpoint = COutPoint(tx_collateral.GetHash(), i);
             break;
         }
@@ -617,7 +617,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_verify_db, TestChainDIP3Setup)
     CMutableTransaction tx_reg;
     tx_reg.nVersion = 3;
     tx_reg.nType = TRANSACTION_PROVIDER_REGISTER;
-    FundTransaction(tx_reg, utxos, scriptPayout, 3000 * COIN, coinbaseKey);
+    FundTransaction(tx_reg, utxos, scriptPayout, 10000 * COIN, coinbaseKey);
     payload.inputsHash = CalcTxInputsHash(tx_reg);
     CMessageSigner::SignMessage(payload.MakeSignString(), payload.vchSig, collateralKey);
     SetTxPayload(tx_reg, payload);
