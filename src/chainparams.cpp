@@ -416,6 +416,15 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 2420; // 60% of 4032
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5; // this corresponds to 10 periods
 
+        // Deployment of Masternode colleteral change
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].bit = 7;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nStartTime = 1693972800; 
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nTimeout = 999999999999ULL; 
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nWindowSize = 4032;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nThresholdStart = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nThresholdMin = 2420; // 60% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nFalloffCoeff = 5; // this corresponds to 10 periods
+
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); 
 
@@ -622,6 +631,15 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 60; // 60% of 100
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5; // this corresponds to 10 periods
 
+        // Deployment of Masternode colleteral change
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].bit = 7;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nStartTime = 1693972800; 
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nTimeout = 999999999999ULL; 
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nWindowSize = 4032;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nThresholdStart = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nThresholdMin = 2420; // 60% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nFalloffCoeff = 5; // this corresponds to 10 periods
+
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); 
 
@@ -813,6 +831,15 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdStart = 80; // 80% of 100
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 60; // 60% of 100
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5; // this corresponds to 10 periods
+        
+        // Deployment of Masternode colleteral change
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].bit = 7;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nStartTime = 1693972800; 
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nTimeout = 999999999999ULL; 
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nWindowSize = 4032;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nThresholdStart = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nThresholdMin = 2420; // 60% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nFalloffCoeff = 5; // this corresponds to 10 periods
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
@@ -987,6 +1014,13 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdStart = 80;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 60;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].bit = 7;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nStartTime = 1693972800; 
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nTimeout = 999999999999ULL; 
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nWindowSize = 4032;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nThresholdStart = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nThresholdMin = 2420; // 60% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_MN].nFalloffCoeff = 5; // this corresponds to 10 periods
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");

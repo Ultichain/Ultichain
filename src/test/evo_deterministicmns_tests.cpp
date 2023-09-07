@@ -476,7 +476,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_test_mempool_reorg, TestChainDIP3Setup)
     payload.scriptPayout = scriptPayout;
 
     for (size_t i = 0; i < tx_collateral.vout.size(); ++i) {
-        if (tx_collateral.vout[i].nValue == 10000 * COIN) {
+        if (tx_collateral.vout[i].nValue == 10000 * COIN || tx_collateral.vout[i].nValue == 3000 * COIN) {
             payload.collateralOutpoint = COutPoint(tx_collateral.GetHash(), i);
             break;
         }
@@ -547,7 +547,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_test_mempool_dual_proregtx, TestChainDIP3Setup)
     payload.scriptPayout = scriptPayout;
 
     for (size_t i = 0; i < tx_reg1.vout.size(); ++i) {
-        if (tx_reg1.vout[i].nValue == 10000 * COIN) {
+        if (tx_reg1.vout[i].nValue == 10000 * COIN || tx_reg1.vout[i].nValue == 3000 * COIN) {
             payload.collateralOutpoint = COutPoint(tx_reg1.GetHash(), i);
             break;
         }
@@ -608,7 +608,7 @@ BOOST_FIXTURE_TEST_CASE(dip3_verify_db, TestChainDIP3Setup)
     payload.scriptPayout = scriptPayout;
 
     for (size_t i = 0; i < tx_collateral.vout.size(); ++i) {
-        if (tx_collateral.vout[i].nValue == 10000 * COIN) {
+        if (tx_collateral.vout[i].nValue == 10000 * COIN || tx_collateral.vout[i].nValue == 3000 * COIN) {
             payload.collateralOutpoint = COutPoint(tx_collateral.GetHash(), i);
             break;
         }
